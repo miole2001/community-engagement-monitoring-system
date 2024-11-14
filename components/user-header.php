@@ -5,6 +5,9 @@ ini_set('display_errors', 1);
 
 //database connection
 include("../connection.php");
+
+include ('../components/alerts.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +20,7 @@ include("../connection.php");
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>VOTER's DASHBOARD | CEMS</title>
+    <title>USER DASHBOARD | CEMS</title>
 
     <!-- FONTAWESOME CSS-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
