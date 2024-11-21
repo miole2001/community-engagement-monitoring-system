@@ -1,4 +1,24 @@
-<?php include("../components/admin-header.php"); ?>
+<?php 
+    include("../components/admin-header.php"); 
+
+    $emcee_accounts = $connForAccounts->query("SELECT * FROM `user_accounts`")->fetchAll(PDO::FETCH_ASSOC);
+
+    $query = "SELECT COUNT(*) AS emcee_count FROM `user_accounts`";
+    $run_query = $connForAccounts->prepare($query);
+    $run_query->execute();
+    $emcee_count = $run_query->fetch(PDO::FETCH_ASSOC)['emcee_count'];
+
+    $query = "SELECT COUNT(*) AS activities_count FROM `activities`";
+    $run_query = $connForActivities->prepare($query);
+    $run_query->execute();
+    $activities_count = $run_query->fetch(PDO::FETCH_ASSOC)['activities_count'];
+
+    $query = "SELECT COUNT(*) AS feedback_count FROM `feedback`";
+    $run_query = $connForActivities->prepare($query);
+    $run_query->execute();
+    $feedback_count = $run_query->fetch(PDO::FETCH_ASSOC)['feedback_count'];
+
+?>
 
 
 <!-- Main Content -->
@@ -18,84 +38,60 @@
 
         <!-- Content Row -->
         <div class="row">
-
-            <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Earnings (Monthly)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                    Emcee Accounts
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <?php echo $emcee_count; ?>
+                                </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                <i class="fas fa-users fa-2x text-gray-300"></i> <!-- New icon for Emcee Accounts -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-success shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Earnings (Annual)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                    Engagement Activities
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <?php echo $activities_count; ?>
+                                </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                <i class="fas fa-tasks fa-2x text-gray-300"></i> <!-- New icon for Engagement Activities -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-info shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                </div>
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="progress progress-sm mr-2">
-                                            <div class="progress-bar bg-info" role="progressbar"
-                                                style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pending Requests Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-warning shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    Pending Requests</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                    Feedback
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <?php echo $feedback_count; ?>
+                                </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                <i class="fas fa-comment-dots fa-2x text-gray-300"></i> <!-- New icon for Feedback -->
                             </div>
                         </div>
                     </div>
@@ -113,39 +109,45 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>#</th>
+                                <th>Profile</th>
                                 <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Child Name</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Date Registered</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
+                                <th>#</th>
+                                <th>Profile</th>
                                 <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Child Name</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Date Registered</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                            </tr>
+                            <?php
+                            $count = 1;
+                            foreach ($emcee_accounts as $emcee):
+                            ?>
+                                <tr>
+                                    <td><?php echo $count++; ?></td>
+                                    <td><img src="../image/profile/<?php echo ($emcee['image']); ?>" alt="Image" style="width: 100px; height: auto;"></td>
+                                    <td><?php echo ($emcee['name']); ?></td>
+                                    <td><?php echo ($emcee['email']); ?></td>
+                                    <td><?php echo ($emcee['password']); ?></td>
+                                    <td><?php echo ($emcee['date_registered']); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-
     </div>
     <!-- /.container-fluid -->
 

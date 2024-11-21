@@ -56,7 +56,7 @@
 
                         // Set cookie and redirect to client dashboard
                         setcookie('user_id', $fetch['id'], time() + 60 * 60 * 24 * 30, '/');
-                        header('Location: user/user.php');
+                        header('Location: user/activities.php');
                         exit();
                     } else {
                         $warning_msg[] = 'Incorrect user password!';

@@ -58,10 +58,11 @@ include ('../components/alerts.php');
 
             <!-- analytics page -->
             <li class="nav-item active">
-                <a class="nav-link" href="user.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>cards</span></a>
+                <a class="nav-link" href="activities.php">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Engagement Activities</span></a>
             </li>
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -74,10 +75,19 @@ include ('../components/alerts.php');
             <!-- my profile page -->
             <li class="nav-item">
                 <a class="nav-link" href="profile.php">
-                    <i class="fas fa-fw fa-user"></i>
+                    <i class="fas fa-user-circle"></i>
                     <span>My Profile</span>
                 </a>
             </li>
+
+            <!-- feedback Activities accounts page -->
+            <li class="nav-item">
+                <a class="nav-link" href="feedback.php">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Feedback</span>
+                </a>
+            </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -90,14 +100,14 @@ include ('../components/alerts.php');
             <!-- logs page -->
             <li class="nav-item">
                 <a class="nav-link" href="logs.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-archive"></i>
                     <span>Logs</span></a>
             </li>
 
             <!-- logout -->
             <li class="nav-item">
                 <a class="nav-link" href="#" id="logout">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span></a>
             </li>
 

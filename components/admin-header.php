@@ -74,16 +74,32 @@ include ('../components/alerts.php');
             <!-- my profile page -->
             <li class="nav-item">
                 <a class="nav-link" href="profile.php">
-                    <i class="fas fa-fw fa-user"></i>
+                    <i class="fas fa-user-circle"></i>
                     <span>My Profile</span>
                 </a>
             </li>
 
-            <!-- user accounts page -->
+            <!-- Emcee accounts page -->
             <li class="nav-item">
                 <a class="nav-link" href="user-accounts.php">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>User Accounts</span>
+                    <i class="fas fa-fw fa-user-tie"></i>
+                    <span>Emcee Accounts</span>
+                </a>
+            </li>
+
+            <!-- Engagement Activities accounts page -->
+            <li class="nav-item">
+                <a class="nav-link" href="activities.php">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Engagement Activities</span>
+                </a>
+            </li>
+
+            <!-- feedback Activities accounts page -->
+            <li class="nav-item">
+                <a class="nav-link" href="feedback.php">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Feedback</span>
                 </a>
             </li>
 
@@ -99,21 +115,21 @@ include ('../components/alerts.php');
             <!-- admin logs page -->
             <li class="nav-item">
                 <a class="nav-link" href="admin-logs.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-archive"></i>
                     <span>My Logs</span></a>
             </li>
 
             <!-- user logs page -->
             <li class="nav-item">
                 <a class="nav-link" href="user-logs.php">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-archive"></i>
                     <span>User Logs</span></a>
             </li>
 
             <!-- logout -->
             <li class="nav-item">
                 <a class="nav-link" href="#" id="logout">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span></a>
             </li>
 
